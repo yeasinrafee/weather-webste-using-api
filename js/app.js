@@ -9,8 +9,15 @@ const getData = city =>{
 
 const displayTemperature = data =>{
     const temperature = document.getElementById('temperature');
-    console.log(data.main.temp);
+    console.log(data);
     temperature.innerText = data.main.temp;
+    document.getElementById('city').innerText = data.name;
+    document.getElementById('condition').innerText = data.weather[0].main;
 }
 
-getData('dhaka');
+const passData = ()=>{
+    const inputField = document.getElementById('input-field').value;
+    getData(inputField);
+}
+
+document.getElementById('search').addEventListener('click', passData);
